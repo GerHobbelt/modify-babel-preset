@@ -33,7 +33,7 @@ function extend(base, props) {
 
 
 function requireBabelPlugin(name, relativeTo) {
-	if (!name.match(/^babel-plugin-/)) {
+	if (!name.match(/^(babel-|@babel\/)plugin-/)) {
 		name = 'babel-plugin-' + name;
 	}
 
