@@ -12,7 +12,7 @@ Create a modified babel preset based on an an existing preset.
 
 
 ```sh
-npm i -S modify-babel-preset
+npm i -S @gerhobbelt/modify-babel-preset
 ```
 
 
@@ -82,7 +82,7 @@ To remove a plugin, pass `false`:
 Here's a simple preset. Just this `index.js` and a package.json pointing to it with the preset and plugin installed as dependencies.
 
 ```js
-var modifyBabelPreset = require('modify-babel-preset');
+var modifyBabelPreset = require('@gerhobbelt/modify-babel-preset');
 
 // just export the cloned, modified preset config:
 module.exports = modifyBabelPreset('es2015', {

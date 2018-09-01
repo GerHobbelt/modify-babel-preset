@@ -34,7 +34,7 @@ function extend(base, props) {
 
 function requireBabelPlugin(name, relativeTo) {
 	if (!name.match(/^babel-plugin-/)) {
-		name = 'babel-plugin-' + name;
+		name = '@gerhobbelt/babel-plugin-' + name;
 	}
 
 	var relativeName;
@@ -68,7 +68,7 @@ module.exports = function(presetInput, modifications) {
 	if (typeof presetInput==='string') {
 		if (!presetInput.match(/(^babel-preset-|[\\/])/)) {
 			try {
-				preset = relative.resolve('babel-preset-'+presetInput, __dirname);
+				preset = relative.resolve('@gerhobbelt/babel-preset-'+presetInput, __dirname);
 			} catch(err) {
 				console.log(err);
 			}
@@ -101,8 +101,8 @@ module.exports = function(presetInput, modifications) {
 	var plugins = getFlattenedPlugins(serialized);
 
 	function isSameName(a, b) {
-		if (typeof a!=='string' || typeof b!=='string') return false;
-		return a.replace(/^babel-plugin-/i, '').toLowerCase() === b.replace(/^babel-plugin-/i, '').toLowerCase();
+		if (typeof a!== 'string' || typeof b!== 'string') return false;
+		return a.replace(/^(?:@gerhobbelt\/)?babel-plugin-/i, '').toLowerCase() === b.replace(/^(?:@gerhobbelt\/)?babel-plugin-/i, '').toLowerCase();
 	}
 
 	function indexOf(plugins, key) {
