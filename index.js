@@ -33,7 +33,7 @@ function extend(base, props) {
 
 
 function requireBabelPlugin(name, relativeTo) {
-	if (!name.match(/^babel-plugin-/)) {
+	if (!name.match(/^((?:(?:@gerhobbelt\/)?babel-)|@babel\/)plugin-/)) {
 		name = '@gerhobbelt/babel-plugin-' + name;
 	}
 
@@ -101,7 +101,7 @@ module.exports = function(presetInput, modifications) {
 	var plugins = getFlattenedPlugins(serialized);
 
 	function isSameName(a, b) {
-		if (typeof a!== 'string' || typeof b!== 'string') return false;
+		if (typeof a !== 'string' || typeof b !== 'string') return false;
 		return a.replace(/^(?:@gerhobbelt\/)?babel-plugin-/i, '').toLowerCase() === b.replace(/^(?:@gerhobbelt\/)?babel-plugin-/i, '').toLowerCase();
 	}
 
